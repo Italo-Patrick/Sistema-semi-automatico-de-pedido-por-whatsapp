@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding-bottom: 140px;
+  margin: 0;
+  background: #111;
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  background: #e63946;
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+header p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.categorias{
+    text-align: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+  gap: 10px;
+}
+
+/* 2 cards por linha */
+#sanduiches,
+#bebidas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* card ocupa o espaço do grid */
+.card {
+  width: 100%;
+}
+
+/* imagens quadradas e padronizadas */
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* quadrado */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.card p {
+  font-size: 20px;
+  color:#fff;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.controls span {
+  font-size: 18px;
+}
+
+/*Endereços*/
+.form input {
+  font-size: 16px; /* 🔥 evita zoom no iOS */
+}
+
+.form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input {
+  padding: 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+/*footer -> botão de enviar pedido mais o total*/
+button {
+  background: #e63946;
+  border: none;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  border: 3px solid #000;
+}
+
+/* parte de cima (total) */
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* botão */
+#btn-enviar {
+  width: 100%;
+  padding: 15px;
+  background: #e63946;
+  color: white;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Hamburgueria - Pedidos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>🍔Sua Lanchonete😋​</h1>
+    <p>Monte seu pedido e envie pelo WhatsApp</p>
+  </header>
+
+<main>
+  <section>
+    <h2 class="categorias">Sanduíches</h2>
+    <div id="sanduiches"></div>
+  </section>
+
+  <section>
+    <h2 class="categorias">Bebidas</h2>
+    <div id="bebidas"></div>
+  </section>
+
+</main>
+
+<!--Pegar endereço-->
+<div class="form">
+  <input type="text" id="nome" placeholder="Seu nome">
+  <input type="text" id="endereco" placeholder="Seu endereço">
+  <input type="text" id="obs" placeholder="Observação (opcional)">
+</div>
+
+<footer class="footer">
+  <div class="total">
+    <span>Total:</span>
+    <span id="valor-total">R$ 0</span>
+  </div>
+
+  <button id="btn-enviar" onclick="enviarPedido()">
+    Enviar pedido
+  </button>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

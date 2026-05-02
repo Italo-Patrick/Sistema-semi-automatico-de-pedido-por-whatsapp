@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+   "categoria": "sanduiches",
+    "nome": "X-Burguer",
+    "preco": 10,
+    "imagem": "imgs/x-burger.jfif"
+  },
+  {
+    "id": 2,
+    "categoria": "sanduiches",
+    "nome": "X-Salada",
+    "preco": 12,
+    "imagem": "imgs/x-salada.jfif"
+  },
+  {
+    "id": 3,
+    "categoria": "sanduiches",
+    "nome": "X-Bacon",
+    "preco": 15,
+    "imagem": "imgs/x-bacon.jfif"
+  },
+    {
+    "id": 4,
+    "categoria": "bebidas",
+    "nome": "coca cola em lata",
+    "preco": 5,
+    "imagem": "imgs/cocacola.webp"
+  }
+]
