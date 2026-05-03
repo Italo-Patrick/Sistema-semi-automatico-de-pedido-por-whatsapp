@@ -4,27 +4,41 @@
    "categoria": "sanduiches",
     "nome": "X-Burguer",
     "preco": 10,
-    "imagem": "imgs/x-burger.jfif"
+    "imagem": "imgs/X-burger-A.png"
   },
   {
     "id": 2,
     "categoria": "sanduiches",
     "nome": "X-Salada",
     "preco": 12,
-    "imagem": "imgs/x-salada.jfif"
+    "imagem": "imgs/X-salada-A.png"
   },
   {
     "id": 3,
     "categoria": "sanduiches",
     "nome": "X-Bacon",
     "preco": 15,
-    "imagem": "imgs/x-bacon.jfif"
+    "imagem": "imgs/x-bacon-A.png"
   },
     {
     "id": 4,
+    "categoria": "sanduiches",
+    "nome": "Hotdog",
+    "preco": 8,
+    "imagem": "imgs/hotdog.png"
+  },
+    {
+    "id": 5,
     "categoria": "bebidas",
-    "nome": "coca cola em lata",
+    "nome": "Coca Cola",
     "preco": 5,
     "imagem": "imgs/cocacola.webp"
+  },
+    {
+    "id": 6,
+    "categoria": "bebidas",
+    "nome": "Guaraná",
+    "preco": 5,
+    "imagem": "imgs/guarana-antarctica.png"
   }
 ]
