@@ -110,3 +110,17 @@ function enviarPedido() {
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
   window.open(url, "_blank");
 }
+
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    setTimeout(function() {
+        
+        loadingScreen.classList.add('loading-hidden');
+        
+        setTimeout(function() {
+            loadingScreen.remove();
+        }, 600); // <-- Tempo do FADE-OUT (deletar do HTML)
+
+    }, 2000); // <-- AQUI! É esse "2000" que você muda para controlar a duração!
+});

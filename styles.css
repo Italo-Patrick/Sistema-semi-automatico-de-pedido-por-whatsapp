@@ -1,34 +1,159 @@
-* {
+*, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+    /* Cores de Identidade */
+    --primary: #D59A4A; 
+    --secundary: #F4EBD9;
+    --accent:#e63946;
+    --color-contrast:#2B1810;
+    /* Light Mode (Padrão) */
+    --text-main: #fff;
+    --text-sub: #6c757d;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /*Fontes*/
+    --font-main: 'Roboto Condensed', sans-serif;
+    --font-secundary: 'DM Sans', sans-serif;
+    --font-standby: 'Inter', sans-serif;
 }
 
 body {
   font-family: Arial, sans-serif;
-  padding-bottom: 140px;
+  padding-bottom: 100px;
   margin: 0;
-  background: #111;
+  background-color: var(--primary);
   color: #fff;
 }
 
+/* --- TELA DE LOADING GLOBAL --- */
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que fica acima de TUDO, até do footer fixo */
+    opacity: 1;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;  /*  TRANSIÇÃO LEVE no final */
+}
+
+/* Esconde o loading (classe que o JS vai adicionar) */
+.loading-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Centralização do conteúdo interno */
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px; /* Espaço confortável entre a logo e o spinner */
+    transform: translateY(-15vh);
+}
+
+/* Estilização da Logo */
+.loading-logo {
+    max-width: 280px; /* Ajuste o tamanho da logo de acordo com o design */
+    height: auto;
+}
+
+/* O SPINNER DE LINHA CONTÍNUA GIRANDO */
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.2); /* A linha de fundo cinza clara */
+    border-top: 5px solid #fff; /* A linha branca que gira, mais grossa e brilhante */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Animação de rotação contínua */
+}
+
+/* Definição da Animação do Spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+  /*MAIN*/
+.app-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  background-image: url(imgs/icones/background.png);
+  background-position: center; /* Centraliza a imagem na horizontal e vertical */
+  background-repeat: no-repeat; /* Impede que a imagem fique se repetindo */
+  background-size: cover;      /* Força a imagem a cobrir todo o espaço disponível sem distorcer */
+  margin: 0 auto; /* Centraliza na tela do PC */
+}
+
 header {
-  text-align: center;
-  padding: 15px;
-  background: #e63946;
+  display: flex;
+  align-items: center; /* Alinha verticalmente no centro */
+  justify-content: center; /* Joga tudo para a esquerda */
+  padding: 10px 20px;
+  gap: 15px; /* Espaço entre a logo e o texto */
+  background: var(--primary);
 }
 
-header h1 {
-  font-size: 20px;
+/* Adicione o ponto antes de topo e especifique a imagem */
+.topo img {
+  display: block; /* Remove espaços vazios estranhos embaixo da imagem */
+  width: 60px;  /* Agora sim a imagem vai obedecer */
+  height: 60px; 
+  object-fit: contain; 
+}
+
+/* Se quiser garantir que a div não cresça além da conta */
+.topo {
+  display: flex;
+  align-items: center; /* Alinha verticalmente a logo com o bloco de texto */
+  justify-content: center; /* Centraliza o conjunto todo no meio da barra */
+  gap: 15px; /* Espaço entre a logo e o texto */
+  width: 100%;
+  height: 80px;
+  flex-shrink: 0; /* Impede que o flexbox "esmague" a logo se o título for grande */
+}
+
+.textos-header {
+  display: flex;
+  flex-direction: column; /* Garante que o H1 fique em cima do P */
+  align-items: flex-start; /* Alinha os textos à esquerda dentro do bloco deles */
+}
+
+.textos-header h1 {
   margin: 0;
+  font-family: var(--font-main);
+  font-size: 1.5rem;
 }
 
-header p {
-  font-size: 14px;
-  margin-top: 5px;
+.textos-header p {
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+}
+
+.textos-header h1, 
+.textos-header p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .categorias{
-    text-align: center;
+  text-align: center;
+  font-family: var(--font-main);
+  color: #2B1810;
+  font-size: 2.5rem;
+  padding: 20px;
+  margin: 0 auto;
 }
+
 main {
   display: flex;
   flex-direction: column;
@@ -105,7 +230,7 @@ main {
 
 /*footer -> botão de enviar pedido mais o total*/
 button {
-  background: #e63946;
+  background: var(--accent);
   border: none;
   color: white;
   padding: 12px;
@@ -118,10 +243,9 @@ button {
   bottom: 0;
   width: 100%;
   max-width: 500px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #000;
-  border: 3px solid #000;
+  background: var(--primary);
+  border-radius: 0 0 10px 10px;
+
 }
 
 /* parte de cima (total) */
@@ -129,15 +253,17 @@ button {
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
-  color: #fff;
-  font-size: 16px;
+  color: var(--color-contrast);
+  font-family: var(--font-main);
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 /* botão */
 #btn-enviar {
   width: 100%;
   padding: 15px;
-  background: #e63946;
+  background: var(--color-contrast);
   color: white;
   font-size: 18px;
   border: none;
@@ -145,7 +271,57 @@ button {
 }
 
 @media (min-width: 768px) {
+
+html, body {
+height: 100vh;
+    overflow: hidden;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    /* --- CENTRALIZAÇÃO VERTICAL E HORIZONTAL PERFEITA --- */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading-content {
+    transform: translateY(-5vh);
+}
+
+  .app-container {
+    width: 450px; 
+    height: 95vh; 
+    margin: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    overflow-y: auto; /* O scroll acontece aqui dentro */
+    position: relative;
+
+    /* REMOVIDO: Tiramos o padding-bottom de 130px porque o footer */
+    /* agora faz parte do fluxo e não precisa desse "buraco" no final! */
+    padding-bottom: 0; 
+    box-sizing: border-box;
+  }
+
   main {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  button {
+  border-radius: 0;
+}
+  
+  .footer {
+    /* MUDANÇA CHAVE: Voltamos para static (fluxo comum do HTML) */
+    position: static; 
+    /* Deixamos o tamanho fluir nativamente dentro dos 450px do container */
+    width: 100%;
+    max-width: 100%;
+    /* Reseta as propriedades de centralização e coordenadas do mobile */
+    left: auto;
+    right: auto;
+    transform: none;
+    margin: 0;
+    border-bottom: none;
+    z-index: 1000;
   }
 }
